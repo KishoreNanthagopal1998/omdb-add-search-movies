@@ -8,33 +8,41 @@ import {
   CardBody,
   CardTitle,
   Row,
-  Col,
-  Button
+  Col
 } from 'reactstrap'
 import SearchSection from './components/SearchSection'
-import AddMovie from './components/AddMovie'
 
-export default function App () {
+export default function App() {
   const [data, setData] = useState({})
   const [searchValue, setSearchValue] = useState('')
 
-  function onChangeSearchValue (event) {
+  function onChangeSearchValue(event) {
     const searchValue = event.target.value
-
     setSearchValue(searchValue)
   }
 
-  function onKeyPressSearchValue (event) {
+  function onKeyPressSearchValue(event) {
     if (event.charCode === 13) {
+      seacrhTextValidate()
+    }
+  }
+
+  function onClickSearch() {
+    seacrhTextValidate()
+  }
+
+  function seacrhTextValidate()
+  {
+    if(searchValue.length==0)
+    {
+      alert(`Please enter the title`)
+    }
+    else{
       fetchMovies()
     }
   }
 
-  function onClickSearch () {
-    fetchMovies()
-  }
-
-  function fetchMovies () {
+  function fetchMovies() {
     fetch(`http://localhost:5000/getMovies/${searchValue}`)
       .then(response => response.json())
       .then(result => setData(result))
@@ -48,7 +56,6 @@ export default function App () {
         onKeyPressSearchValue={onKeyPressSearchValue}
         onClickSearch={onClickSearch}
       />
-
       <br />
       <section className='movies-section'>
         <Row>
@@ -56,7 +63,7 @@ export default function App () {
             data.length &&
             data.map(movie => {
               return (
-                <Col md={3} key={movie.imdbID}>
+                <Col md={4} key={movie.imdbID}>
                   <Card>
                     <CardImg
                       top

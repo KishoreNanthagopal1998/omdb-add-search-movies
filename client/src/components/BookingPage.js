@@ -9,6 +9,7 @@ import {
   Button,
   Container
 } from "reactstrap";
+import "../styles.css";
 
 export default function BookingPage() {
   const [loading, setLoading] = useState(false);
@@ -37,22 +38,22 @@ export default function BookingPage() {
   }
 
   function onClickBook() {
-    alert("Ticket Booked");
+    alert(`Tickets for "${data.title}" is Booked`);
   }
 
   return (
     <Container>
       {loading ? (
-        <h3>Loading...</h3>
+        <center><h3 className="loadingTag">Loading...</h3></center>
       ) : (
         <>
           <section className="movie-details-section">
             <br />
-            <h2>Welcome to booking Section</h2>
+            <h1 className = "headingBooking">Welcome to booking Section</h1>
             <br />
-            <h4>Movie - {data.title}</h4>
+            <h4 className="movieTitle">Movie - {data.title}</h4>
             <br />
-            <Card className="align-items-center ">
+            <Card className="align-items-center">
               <CardImg
                 top
                 style={{ height: "480px", width: "360px" }}

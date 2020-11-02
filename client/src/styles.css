@@ -2,3 +2,49 @@
   font-family: sans-serif;
   text-align: center;
 }
+p{
+  font-size: large;
+  color: blue;
+
+}
+.containerClass{
+  margin-top: 50px;
+}
+
+.addMovieTitle{
+  color: blue;
+}
+
+.titleMovieSearch{
+  color: blue;
+  text-align: center;
+}
+
+.p-required{
+  font-size: smaller;
+  color: red;
+  margin-bottom: 0%;
+}
+
+.addMovieButton{
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+
+.movies-section{
+  margin: 30px 20px;
+}
+
+.headingBooking{
+  text-align: center;
+  color: blue;
+}
+
+.movieTitle{
+  text-align: center;
+  color: blueviolet;
+}
+
+.loadingTag{
+  color: teal;
+}
